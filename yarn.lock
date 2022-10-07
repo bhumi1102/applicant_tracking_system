@@ -12,7 +12,7 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.10.tgz#78a42897c2cf8db9fd5f1811f7590393b77774c7"
   integrity sha512-w0Ou3Z83LOYEkwaui2M8VwIp+nLi/NA60lBLMvaJ+vXVMcsARYdEzLNE7RSm4+lSg4zq4d7fAVuzk7PNQ5JFgg==
 
-"@hotwired/stimulus@^3.1.0":
+"@hotwired/stimulus@^3.1.0", "stimulus@npm:@hotwired/stimulus":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.1.0.tgz#20215251e5afe6e0a3787285181ba1bfc9097df0"
   integrity sha512-iDMHUhiEJ1xFeicyHcZQQgBzhtk5mPR0QZO3L6wtqzMsJEk2TKECuCQTGKjm+KJTHVY0dKq1dOOAWvODjpd2Mg==
@@ -453,10 +453,17 @@ minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
 
-morphdom@^2.6.1:
+"morphdom@>=2.6.0 <3.0.0", morphdom@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.1.tgz#e868e24f989fa3183004b159aed643e628b4306e"
   integrity sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==
+
+mrujs@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/mrujs/-/mrujs-0.10.1.tgz#63f64a37fc6dd9ce14a7296a09a5efaac54a322f"
+  integrity sha512-VRilxqfFi0PAEsaNHUQvtf3QKpU7p9xXA97HyksIc4Jb13Bap/9d212dUddC31TnEGby7GymWU+EKRiZIcOJmQ==
+  dependencies:
+    morphdom ">=2.6.0 <3.0.0"
 
 nanoid@^3.3.4:
   version "3.3.4"
