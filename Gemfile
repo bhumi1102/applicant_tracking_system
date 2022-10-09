@@ -69,3 +69,5 @@ end
 
 
 gem "stimulus_reflex", "= 3.5.0.pre8"
+gem 'devise', branch: 'rails_7', github: 'DavidColby/devise'
+
