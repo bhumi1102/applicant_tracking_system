@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users,
   path: '',
   controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
   },
   path_names: {
     sign_in: 'login',
@@ -11,8 +12,6 @@ Rails.application.routes.draw do
     sign_up: 'sign_up',
     sign_out: 'signout'
   }
-# Snip
-  
 
   get 'dashboard/show'
 
