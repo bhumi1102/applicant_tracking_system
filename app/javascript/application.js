@@ -11,3 +11,6 @@ mrujs.start({
     new CableCar(CableReady)
   ]
 })
+
+import "trix"
+import "@rails/actiontext"
