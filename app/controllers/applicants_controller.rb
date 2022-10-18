@@ -1,5 +1,6 @@
 class ApplicantsController < ApplicationController
   before_action :set_applicant, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /applicants or /applicants.json
   def index
@@ -10,27 +11,28 @@ class ApplicantsController < ApplicationController
   def show
   end
 
-  # GET /applicants/new
   def new
-    @applicant = Applicant.new
+    html = render_to_string(partial: 'form', locals: { applicant: Applicant.new })
+    render operations: cable_car
+      .inner_html('#slideover-content', html: html)
+      .text_content('#slideover-header', text: 'Add an applicant')
   end
 
   # GET /applicants/1/edit
   def edit
   end
 
-  # POST /applicants or /applicants.json
   def create
     @applicant = Applicant.new(applicant_params)
-
-    respond_to do |format|
-      if @applicant.save
-        format.html { redirect_to applicant_url(@applicant), notice: "Applicant was successfully created." }
-        format.json { render :show, status: :created, location: @applicant }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @applicant.errors, status: :unprocessable_entity }
-      end
+    if @applicant.save
+      html = render_to_string(partial: 'card', locals: { applicant: @applicant })
+      render operations: cable_car
+        .prepend("#applicants-#{@applicant.stage}", html: html)
+        .dispatch_event(name: 'submit:success')
+    else
+      html = render_to_string(partial: 'form', locals: { applicant: @applicant })
+      render operations: cable_car
+        .inner_html('#applicant-form', html: html), status: :unprocessable_entity
     end
   end
 
