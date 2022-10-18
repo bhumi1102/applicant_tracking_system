@@ -32,6 +32,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :resume %>
+    <%= form.file_field :resume, direct_upload: true, accept: "application/pdf" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :stage %>
     <%= form.select :stage, options_for_select(Applicant.stages.map{ |key, _value| [key.humanize, key]}, applicant.stage), {}, { class: "mt-1" } %>
   </div>
