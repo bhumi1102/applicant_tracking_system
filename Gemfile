@@ -73,3 +73,5 @@ gem 'devise', branch: 'rails_7', github: 'DavidColby/devise'
 
 
 gem "inline_svg", "~> 1.8"
+
+gem "pg_search", "~> 2.3"

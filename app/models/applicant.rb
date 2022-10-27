@@ -1,8 +1,19 @@
 class Applicant < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :job
 
   has_one_attached :resume
   
+  pg_search_scope :text_search,
+    against: %i[first_name last_name email],
+    using: {
+      tsearch: {
+        any_word: true,
+        prefix: true
+      }
+    }
+    
   enum stage: {
     application: 'application',
     interview: 'interview',
